@@ -25,8 +25,12 @@ class GeneradorPersonas(threading.Thread):
             if origen != destino:
                 s = Solicitud(origen, destino)
                 
-                with lock_estado:
-                    personas_esperando[origen][s.direccion].append(s)
+                try:
+                    with lock_estado:
+                        personas_esperando[origen][s.direccion].append(s)
+                except KeyError as e:
+                    logging.error(f"KeyError in personas_esperando: {e}, origen={origen}, NUM_PLANTAS={config.NUM_PLANTAS}")
+                    continue
                 
                 cola_solicitudes.put(s)
                 registrar_solicitud()
@@ -35,8 +39,12 @@ class GeneradorPersonas(threading.Thread):
 
 def generar_solicitud_manual(origen, destino):
     s = Solicitud(origen, destino)
-    with lock_estado:
-        personas_esperando[origen][s.direccion].append(s)
+    try:
+        with lock_estado:
+            personas_esperando[origen][s.direccion].append(s)
+    except KeyError as e:
+        logging.error(f"KeyError in personas_esperando: {e}, origen={origen}, NUM_PLANTAS={config.NUM_PLANTAS}")
+        return
     cola_solicitudes.put(s)
     registrar_solicitud()
     logging.info(f"Persona solicita manual: {origen} -> {destino}")

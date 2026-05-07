@@ -1,0 +1,157 @@
+2026-05-07 22:45:22,532 [INFO] Persona solicita automático: 4 -> 9
+2026-05-07 22:45:22,532 [INFO] Planificador asigna ascensor 0 a planta 4
+2026-05-07 22:45:23,804 [INFO] Persona solicita automático: 0 -> 2
+2026-05-07 22:45:23,804 [INFO] Planificador asigna ascensor 1 a planta 0
+2026-05-07 22:45:23,804 [INFO] Ascensor 1 abre puertas en planta 0
+2026-05-07 22:45:24,533 [INFO] Ascensor 0 abre puertas en planta 4
+2026-05-07 22:45:24,804 [INFO] Ascensor 1: pasajero sube en 0 con destino 2
+2026-05-07 22:45:25,534 [INFO] Ascensor 0: pasajero sube en 4 con destino 9
+2026-05-07 22:45:25,805 [INFO] Ascensor 1 abre puertas en planta 2
+2026-05-07 22:45:26,645 [INFO] Persona solicita automático: 0 -> 5
+2026-05-07 22:45:26,645 [INFO] Planificador asigna ascensor 2 a planta 0
+2026-05-07 22:45:26,645 [INFO] Ascensor 2 abre puertas en planta 0
+2026-05-07 22:45:26,806 [INFO] Ascensor 1: pasajero baja en 2
+2026-05-07 22:45:27,646 [INFO] Ascensor 2: pasajero sube en 0 con destino 5
+2026-05-07 22:45:28,036 [INFO] Ascensor 0 abre puertas en planta 9
+2026-05-07 22:45:29,036 [INFO] Ascensor 0: pasajero baja en 9
+2026-05-07 22:45:29,150 [INFO] Persona solicita automático: 8 -> 1
+2026-05-07 22:45:29,150 [INFO] Planificador asigna ascensor 0 a planta 8
+2026-05-07 22:45:29,650 [INFO] Ascensor 0 abre puertas en planta 8
+2026-05-07 22:45:30,094 [INFO] Persona solicita automático: 8 -> 4
+2026-05-07 22:45:30,094 [INFO] Planificador asigna ascensor 0 a planta 8
+2026-05-07 22:45:30,148 [INFO] Ascensor 2 abre puertas en planta 5
+2026-05-07 22:45:30,650 [INFO] Ascensor 0: pasajero sube en 8 con destino 1
+2026-05-07 22:45:30,650 [INFO] Ascensor 0: pasajero sube en 8 con destino 4
+2026-05-07 22:45:31,148 [INFO] Ascensor 2: pasajero baja en 5
+2026-05-07 22:45:31,218 [INFO] Persona solicita automático: 9 -> 0
+2026-05-07 22:45:31,218 [INFO] Planificador asigna ascensor 2 a planta 9
+2026-05-07 22:45:31,805 [INFO] Persona solicita automático: 9 -> 5
+2026-05-07 22:45:31,805 [INFO] Planificador asigna ascensor 1 a planta 9
+2026-05-07 22:45:32,652 [INFO] Ascensor 0 abre puertas en planta 4
+2026-05-07 22:45:33,219 [INFO] Ascensor 2 abre puertas en planta 9
+2026-05-07 22:45:33,652 [INFO] Ascensor 0: pasajero baja en 4
+2026-05-07 22:45:34,192 [INFO] Persona solicita automático: 8 -> 6
+2026-05-07 22:45:34,192 [INFO] Planificador asigna ascensor 2 a planta 8
+2026-05-07 22:45:34,219 [INFO] Ascensor 2: pasajero sube en 9 con destino 0
+2026-05-07 22:45:34,219 [INFO] Ascensor 2: pasajero sube en 9 con destino 5
+2026-05-07 22:45:34,719 [INFO] Ascensor 2 abre puertas en planta 8
+2026-05-07 22:45:35,123 [INFO] Persona solicita automático: 1 -> 0
+2026-05-07 22:45:35,123 [INFO] Planificador asigna ascensor 0 a planta 1
+2026-05-07 22:45:35,153 [INFO] Ascensor 0 abre puertas en planta 1
+2026-05-07 22:45:35,307 [INFO] Ascensor 1 abre puertas en planta 9
+2026-05-07 22:45:35,720 [INFO] Ascensor 2: pasajero sube en 8 con destino 6
+2026-05-07 22:45:35,961 [INFO] Persona solicita automático: 8 -> 4
+2026-05-07 22:45:35,961 [INFO] Planificador asigna ascensor 1 a planta 8
+2026-05-07 22:45:36,153 [INFO] Ascensor 0: pasajero baja en 1
+2026-05-07 22:45:36,154 [INFO] Ascensor 0: pasajero sube en 1 con destino 0
+2026-05-07 22:45:36,654 [INFO] Ascensor 0 abre puertas en planta 0
+2026-05-07 22:45:36,720 [INFO] Ascensor 2 abre puertas en planta 6
+2026-05-07 22:45:36,808 [INFO] Ascensor 1 abre puertas en planta 8
+2026-05-07 22:45:37,247 [INFO] Persona solicita automático: 3 -> 8
+2026-05-07 22:45:37,247 [INFO] Planificador asigna ascensor 0 a planta 3
+2026-05-07 22:45:37,654 [INFO] Ascensor 0: pasajero baja en 0
+2026-05-07 22:45:37,721 [INFO] Ascensor 2: pasajero baja en 6
+2026-05-07 22:45:37,808 [INFO] Ascensor 1: pasajero sube en 8 con destino 4
+2026-05-07 22:45:38,221 [INFO] Ascensor 2 abre puertas en planta 5
+2026-05-07 22:45:39,155 [INFO] Ascensor 0 abre puertas en planta 3
+2026-05-07 22:45:39,222 [INFO] Ascensor 2: pasajero baja en 5
+2026-05-07 22:45:39,275 [INFO] Persona solicita automático: 0 -> 8
+2026-05-07 22:45:39,275 [INFO] Planificador asigna ascensor 2 a planta 0
+2026-05-07 22:45:39,809 [INFO] Ascensor 1 abre puertas en planta 4
+2026-05-07 22:45:40,156 [INFO] Ascensor 0: pasajero sube en 3 con destino 8
+2026-05-07 22:45:40,810 [INFO] Ascensor 1: pasajero baja en 4
+2026-05-07 22:45:41,178 [INFO] Persona solicita automático: 1 -> 6
+2026-05-07 22:45:41,179 [INFO] Planificador asigna ascensor 1 a planta 1
+2026-05-07 22:45:41,723 [INFO] Ascensor 2 abre puertas en planta 0
+2026-05-07 22:45:42,658 [INFO] Ascensor 0 abre puertas en planta 8
+2026-05-07 22:45:42,680 [INFO] Ascensor 1 abre puertas en planta 1
+2026-05-07 22:45:42,723 [INFO] Ascensor 2: pasajero baja en 0
+2026-05-07 22:45:42,723 [INFO] Ascensor 2: pasajero sube en 0 con destino 8
+2026-05-07 22:45:43,179 [INFO] Persona solicita automático: 4 -> 0
+2026-05-07 22:45:43,179 [INFO] Planificador asigna ascensor 2 a planta 4
+2026-05-07 22:45:43,659 [INFO] Ascensor 0: pasajero baja en 8
+2026-05-07 22:45:44,725 [INFO] Ascensor 2 abre puertas en planta 4
+2026-05-07 22:45:45,369 [INFO] Persona solicita automático: 7 -> 2
+2026-05-07 22:45:45,369 [INFO] Planificador asigna ascensor 0 a planta 7
+2026-05-07 22:45:45,869 [INFO] Ascensor 0 abre puertas en planta 7
+2026-05-07 22:45:46,870 [INFO] Ascensor 0: pasajero sube en 7 con destino 2
+2026-05-07 22:45:47,465 [INFO] Persona solicita automático: 6 -> 1
+2026-05-07 22:45:47,465 [INFO] Planificador asigna ascensor 1 a planta 6
+2026-05-07 22:45:47,727 [INFO] Ascensor 2 abre puertas en planta 8
+2026-05-07 22:45:48,727 [INFO] Ascensor 2: pasajero baja en 8
+2026-05-07 22:45:49,371 [INFO] Ascensor 0 abre puertas en planta 2
+2026-05-07 22:45:49,952 [INFO] Persona solicita automático: 7 -> 8
+2026-05-07 22:45:49,952 [INFO] Planificador asigna ascensor 1 a planta 7
+2026-05-07 22:45:49,967 [INFO] Ascensor 1 abre puertas en planta 6
+2026-05-07 22:45:50,371 [INFO] Ascensor 0: pasajero baja en 2
+2026-05-07 22:45:51,468 [INFO] Ascensor 1 abre puertas en planta 7
+2026-05-07 22:45:52,468 [INFO] Ascensor 1: pasajero sube en 7 con destino 8
+2026-05-07 22:45:52,545 [INFO] Persona solicita automático: 4 -> 7
+2026-05-07 22:45:52,545 [INFO] Planificador asigna ascensor 0 a planta 4
+2026-05-07 22:45:52,968 [INFO] Ascensor 1 abre puertas en planta 8
+2026-05-07 22:45:53,546 [INFO] Ascensor 0 abre puertas en planta 4
+2026-05-07 22:45:53,969 [INFO] Ascensor 1: pasajero baja en 8
+2026-05-07 22:45:54,547 [INFO] Ascensor 0: pasajero sube en 4 con destino 7
+2026-05-07 22:45:54,566 [INFO] Persona solicita automático: 2 -> 8
+2026-05-07 22:45:54,566 [INFO] Planificador asigna ascensor 1 a planta 2
+2026-05-07 22:45:55,312 [INFO] Persona solicita automático: 8 -> 5
+2026-05-07 22:45:55,312 [INFO] Planificador asigna ascensor 2 a planta 8
+2026-05-07 22:45:55,312 [INFO] Ascensor 2 abre puertas en planta 8
+2026-05-07 22:45:56,048 [INFO] Ascensor 0 abre puertas en planta 7
+2026-05-07 22:45:56,312 [INFO] Ascensor 2: pasajero sube en 8 con destino 5
+2026-05-07 22:45:57,048 [INFO] Ascensor 0: pasajero baja en 7
+2026-05-07 22:45:57,568 [INFO] Ascensor 1 abre puertas en planta 2
+2026-05-07 22:45:57,814 [INFO] Ascensor 2 abre puertas en planta 5
+2026-05-07 22:45:57,841 [INFO] Persona solicita automático: 9 -> 5
+2026-05-07 22:45:57,841 [INFO] Planificador asigna ascensor 0 a planta 9
+2026-05-07 22:45:58,814 [INFO] Ascensor 2: pasajero baja en 5
+2026-05-07 22:45:58,841 [INFO] Ascensor 0 abre puertas en planta 9
+2026-05-07 22:45:59,842 [INFO] Ascensor 0: pasajero sube en 9 con destino 5
+2026-05-07 22:45:59,980 [INFO] Persona solicita automático: 6 -> 0
+2026-05-07 22:45:59,980 [INFO] Planificador asigna ascensor 2 a planta 6
+2026-05-07 22:46:00,480 [INFO] Ascensor 2 abre puertas en planta 6
+2026-05-07 22:46:00,490 [INFO] Persona solicita automático: 8 -> 3
+2026-05-07 22:46:00,490 [INFO] Planificador asigna ascensor 1 a planta 8
+2026-05-07 22:46:01,843 [INFO] Ascensor 0 abre puertas en planta 5
+2026-05-07 22:46:02,843 [INFO] Ascensor 0: pasajero baja en 5
+2026-05-07 22:46:03,491 [INFO] Ascensor 1 abre puertas en planta 8
+2026-05-07 22:49:15,180 [INFO] Persona solicita manual: 0 -> 5
+2026-05-07 22:49:15,180 [INFO] Planificador asigna ascensor 0 a planta 0
+2026-05-07 22:49:17,681 [INFO] Ascensor 0 abre puertas en planta 0
+2026-05-07 22:49:18,682 [INFO] Ascensor 0: pasajero sube en 0 con destino 5
+2026-05-07 22:49:21,183 [INFO] Ascensor 0 abre puertas en planta 5
+2026-05-07 22:49:22,184 [INFO] Ascensor 0: pasajero baja en 5
+2026-05-07 22:49:48,764 [INFO] Persona solicita manual: 1 -> 7
+2026-05-07 22:49:48,764 [INFO] Planificador asigna ascensor 0 a planta 1
+2026-05-07 22:49:50,765 [INFO] Ascensor 0 abre puertas en planta 1
+2026-05-07 22:53:03,124 [INFO] Persona solicita manual: 7 -> 9
+2026-05-07 22:53:03,124 [INFO] Planificador asigna ascensor 1 a planta 7
+2026-05-07 22:53:03,624 [INFO] Ascensor 1 abre puertas en planta 7
+2026-05-07 22:53:25,516 [INFO] Persona solicita manual: 4 -> 5
+2026-05-07 22:53:25,516 [INFO] Planificador asigna ascensor 2 a planta 4
+2026-05-07 22:53:26,517 [INFO] Ascensor 2 abre puertas en planta 4
+2026-05-07 22:53:27,517 [INFO] Ascensor 2: pasajero sube en 4 con destino 0
+2026-05-07 22:53:29,518 [INFO] Ascensor 2 abre puertas en planta 0
+2026-05-07 22:53:30,519 [INFO] Ascensor 2: pasajero baja en 0
+2026-05-07 22:54:00,268 [INFO] Persona solicita manual: 4 -> 5
+2026-05-07 22:54:00,268 [INFO] Planificador asigna ascensor 0 a planta 4
+2026-05-07 22:54:01,172 [INFO] Persona solicita manual: 4 -> 5
+2026-05-07 22:54:01,172 [INFO] Planificador asigna ascensor 0 a planta 4
+2026-05-07 22:54:01,769 [INFO] Ascensor 0 abre puertas en planta 4
+2026-05-07 22:54:02,668 [INFO] Persona solicita manual: 4 -> 5
+2026-05-07 22:54:02,668 [INFO] Planificador asigna ascensor 0 a planta 4
+2026-05-07 22:54:02,769 [INFO] Ascensor 0: pasajero sube en 4 con destino 5
+2026-05-07 22:54:02,769 [INFO] Ascensor 0: pasajero sube en 4 con destino 5
+2026-05-07 22:54:02,769 [INFO] Ascensor 0: pasajero sube en 4 con destino 5
+2026-05-07 22:54:02,770 [INFO] Ascensor 0: pasajero sube en 4 con destino 5
+2026-05-07 22:54:03,270 [INFO] Ascensor 0 abre puertas en planta 5
+2026-05-07 22:54:03,724 [INFO] Persona solicita manual: 4 -> 5
+2026-05-07 22:54:03,724 [INFO] Planificador asigna ascensor 1 a planta 4
+2026-05-07 22:54:04,271 [INFO] Ascensor 0: pasajero baja en 5
+2026-05-07 22:54:04,271 [INFO] Ascensor 0: pasajero baja en 5
+2026-05-07 22:54:04,271 [INFO] Ascensor 0: pasajero baja en 5
+2026-05-07 22:54:04,271 [INFO] Ascensor 0: pasajero baja en 5
+2026-05-07 22:54:05,220 [INFO] Persona solicita manual: 4 -> 5
+2026-05-07 22:54:05,220 [INFO] Planificador asigna ascensor 0 a planta 4
+2026-05-07 22:54:05,224 [INFO] Ascensor 1 abre puertas en planta 4
+2026-05-07 22:54:05,720 [INFO] Ascensor 0 abre puertas en planta 4

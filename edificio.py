@@ -19,5 +19,6 @@ personas_esperando = {} # Se inicializará cuando sepamos NUM_PLANTAS
 lock_estado = threading.Lock()
 
 def inicializar_edificio():
-    global personas_esperando
-    personas_esperando = {i: {'subiendo': [], 'bajando': []} for i in range(config.NUM_PLANTAS)}
+    personas_esperando.clear()
+    for i in range(config.NUM_PLANTAS):
+        personas_esperando[i] = {'subiendo': [], 'bajando': []}
