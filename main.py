@@ -15,7 +15,6 @@ def configurar_logging():
         format='%(asctime)s [%(levelname)s] %(message)s',
         filemode='w'
     )
-    # Reducimos los logs de threading si los hay
     logging.getLogger().setLevel(logging.INFO)
 
 def dibujar_edificio(ascensores):
@@ -37,20 +36,27 @@ def dibujar_edificio(ascensores):
         print(linea)
     print("=" * 50)
 
+def pedir_entero(mensaje, valor_defecto, min_valor):
+    while True:
+        try:
+            entrada = input(f"{mensaje} (Enter para {valor_defecto}): ").strip()
+            if not entrada:
+                return valor_defecto
+            valor = int(entrada)
+            if valor < min_valor:
+                print(f"Error: El valor debe ser al menos {min_valor}. Inténtalo de nuevo.")
+            else:
+                return valor
+        except ValueError:
+            print("Error: Entrada inválida. Debes introducir un número entero.")
+
 def main():
     configurar_logging()
     print("Bienvenido al Simulador Avanzado de Ascensores")
-    try:
-        plantas_input = input(f"Número de plantas (Enter para {config.NUM_PLANTAS}): ")
-        if plantas_input.strip(): config.NUM_PLANTAS = int(plantas_input)
-        
-        asc_input = input(f"Número de ascensores (Enter para {config.NUM_ASCENSORES}): ")
-        if asc_input.strip(): config.NUM_ASCENSORES = int(asc_input)
-        
-        cap_input = input(f"Capacidad máxima (Enter para {config.CAPACIDAD_MAXIMA}): ")
-        if cap_input.strip(): config.CAPACIDAD_MAXIMA = int(cap_input)
-    except ValueError:
-        print("Entrada inválida. Usando valores por defecto.")
+    
+    config.NUM_PLANTAS = pedir_entero("Número de plantas", config.NUM_PLANTAS, 2)
+    config.NUM_ASCENSORES = pedir_entero("Número de ascensores", config.NUM_ASCENSORES, 1)
+    config.CAPACIDAD_MAXIMA = pedir_entero("Capacidad máxima", config.CAPACIDAD_MAXIMA, 1)
         
     inicializar_edificio()
 
