@@ -33,9 +33,16 @@ Imaginemos una situación con 3 ascensores y 5 peticiones simultáneas, donde ca
 - **Versión Concurrente (actual)**: Los 3 ascensores se mueven simultáneamente. El tiempo que percibe el usuario es casi igual al viaje más largo (aprox 5s a 7s), logrando un factor de mejora del rendimiento del 300% al 400%. Además, la interfaz principal responde a los comandos del usuario con latencia cero (inmediatamente), ya que la espera física ocurre en el contexto local de cada hilo derivado.
 
 ## 6. Problemas Encontrados y Solución
-Durante el desarrollo se experimentó un bloqueo grave provocado por una falla de referencias compartidas (una excepción de tipo `KeyError`).
-**Problema**: Al inicializar las variables dinámicas de la simulación desde el menú, el método `inicializar_edificio()` creaba y asignaba un *nuevo diccionario* (`{}`) a la variable global `personas_esperando`. Sin embargo, debido al ciclo de importaciones de Python, los hilos de los ascensores ya poseían una referencia apuntando a la dirección de memoria original del diccionario, el cual había quedado obsoleto y vacío. Al intentar buscar a las personas de la planta 6, estallaba con `KeyError: 6`.
-**Solución**: Se eliminó la reasignación destructiva. En lugar de reescribir la variable global apuntando a otro objeto en memoria, se solucionó aplicando la técnica de mutación *in-place*: ejecutando `personas_esperando.clear()` y rellenando nuevamente las claves del mismo objeto, garantizando que todos los hilos interactuaran con el mismo espacio de memoria compartido.
+
+Durante el desarrollo de la simulación nos enfrentamos a varios retos técnicos y de diseño:
+
+### Bloqueo por exclusión de plantas (Cuellos de botella)
+**Problema**: En las primeras versiones de la simulación, se implementó un sistema preventivo de colisiones donde cada planta entera estaba protegida por un único cerrojo (`locks_plantas`). Esto provocaba un problema grave de concurrencia: si un ascensor estaba abriendo las puertas en la planta 5, el resto de ascensores se quedaban completamente bloqueados y no podían pasar de largo por esa planta, a pesar de viajar por huecos (shafts) físicamente distintos. Esto reducía el rendimiento drásticamente y generaba "atascos de tráfico" artificiales.
+**Solución**: Se rediseñó el sistema eliminando el bloqueo estricto por planta. Se delegó la concurrencia a bloqueos más granulares: un `lock_ascensor` para el estado interno de cada cabina y un `lock_estado` muy breve solo para cuando las personas suben o bajan de las colas de espera de la planta. Ahora las cabinas son independientes y no se estorban al cruzarse.
+
+### Escalabilidad: Exceso de hilos y sobrecarga de terminal
+**Problema**: Al realizar pruebas de estrés con configuraciones masivas (por ejemplo, 100 ascensores y 200 plantas), el sistema empezó a mostrar deficiencias. Por un lado, mantener cientos de hilos (`Threads`) simultáneos en Python introdujo una sobrecarga (overhead) significativa debido a los cambios de contexto del procesador y a las restricciones del GIL (Global Interpreter Lock), lo que desvirtuaba los tiempos reales de la simulación. Además, la función encargada de dibujar el edificio en tiempo real provocaba graves problemas visuales en la consola (saltos de línea descontrolados y parpadeo constante) al intentar renderizar matrices inmensas.
+**Solución**: Se concluyó que la arquitectura multihilo actual es perfecta y muy didáctica para escalas normales (un edificio UAX realista), pero para llevarlo a una "escala de rascacielos gigante" la visualización por consola queda obsoleta (se requeriría una interfaz gráfica) y el motor interno debería migrar de `threading` a la librería `asyncio`, la cual usa corrutinas mucho más ligeras para manejar miles de entidades con una única hebra del sistema operativo.
 
 ## 7. Instrucciones de Ejecución
 ### Requisitos
