@@ -23,11 +23,12 @@ def registrar_atencion(timestamp):
 
 def imprimir_estadisticas():
     with lock_stats:
-        print("\n--- ESTADÍSTICAS ---")
-        print(estadisticas)
+        print("\n" + "="*40)
+        print("          ESTADÍSTICAS FINALES          ")
+        print("="*40)
+        print(f" Solicitudes totales:   {estadisticas['solicitudes_totales']}")
+        print(f" Solicitudes atendidas: {estadisticas['solicitudes_atendidas']}")
         if estadisticas["solicitudes_atendidas"] > 0:
-            media = (
-                estadisticas["tiempo_espera_total"]
-                / estadisticas["solicitudes_atendidas"]
-            )
-            print(f"Tiempo medio de espera: {media:.2f}s")
+            media = estadisticas["tiempo_espera_total"] / estadisticas["solicitudes_atendidas"]
+            print(f" Tiempo medio espera:   {media:.2f}s")
+        print("="*40 + "\n")
