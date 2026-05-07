@@ -35,6 +35,8 @@ class GeneradorPersonas(threading.Thread):
                 cola_solicitudes.put(s)
                 registrar_solicitud()
                 logging.info(f"Persona solicita automático: {origen} -> {destino}")
+                if abs(origen - destino) == 1:
+                    logging.info(f"🤖 ¡ERES UN VAGO, USA LAS ESCALERAS! (automático de {origen} a {destino})")
             time.sleep(random.uniform(0.5, 3))
 
 def generar_solicitud_manual(origen, destino):
@@ -48,3 +50,5 @@ def generar_solicitud_manual(origen, destino):
     cola_solicitudes.put(s)
     registrar_solicitud()
     logging.info(f"Persona solicita manual: {origen} -> {destino}")
+    if abs(origen - destino) == 1:
+        logging.info(f"🤖 ¡ERES UN VAGO, USA LAS ESCALERAS! (manual de {origen} a {destino})")

@@ -95,6 +95,8 @@ def main():
                     if 0 <= origen < config.NUM_PLANTAS and 0 <= destino < config.NUM_PLANTAS and origen != destino:
                         generar_solicitud_manual(origen, destino)
                         print(f"Solicitud manual enviada: {origen} -> {destino}")
+                        if abs(origen - destino) == 1:
+                            print("🤖 ¡ERES UN VAGO, USA LAS ESCALERAS! (pero bueno, te mandamos el ascensor igualmente...)")
                     else:
                         print(f"Plantas inválidas. Deben estar entre 0 y {config.NUM_PLANTAS - 1}.")
                 elif cmd:
