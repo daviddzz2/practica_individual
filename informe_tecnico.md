@@ -68,13 +68,15 @@ Durante el desarrollo de la simulación nos enfrentamos a varios retos técnicos
 
 ### Bloqueo por exclusión de plantas (Cuellos de botella)
 
-**Problema**: En las primeras versiones de la simulación, se implementó un sistema preventivo de colisiones donde cada planta entera estaba protegida por un único cerrojo (`locks_plantas`). Esto provocaba un problema grave de concurrencia: si un ascensor estaba abriendo las puertas en la planta 5, el resto de ascensores se quedaban completamente bloqueados y no podían pasar de largo por esa planta, a pesar de viajar por huecos (shafts) físicamente distintos. Esto reducía el rendimiento drásticamente y generaba "atascos de tráfico" artificiales.
-**Solución**: Se rediseñó el sistema eliminando el bloqueo estricto por planta. Se delegó la concurrencia a bloqueos más granulares: un `lock_ascensor` para el estado interno de cada cabina y un `lock_estado` muy breve solo para cuando las personas suben o bajan de las colas de espera de la planta. Ahora las cabinas son independientes y no se estorban al cruzarse.
+**Problema**: Usar un cerrojo por planta bloqueaba todos los ascensores mientras uno abría puertas, generando atascos artificiales y reduciendo drásticamente la concurrencia.
+
+**Solución**: Se pasó a bloqueos más finos: `lock_ascensor` para estado de cada cabina y `lock_estado` solo para acceder a las colas de espera, de modo que los ascensores pueden cruzarse sin estorbarse.
 
 ### Escalabilidad: Exceso de hilos y sobrecarga de terminal
 
-**Problema**: Al realizar pruebas de estrés con configuraciones masivas (por ejemplo, 100 ascensores y 200 plantas), el sistema empezó a mostrar deficiencias. Por un lado, mantener cientos de hilos (`Threads`) simultáneos en Python introdujo una sobrecarga (overhead) significativa debido a los cambios de contexto del procesador y a las restricciones del GIL (Global Interpreter Lock), lo que desvirtuaba los tiempos reales de la simulación. Además, la función encargada de dibujar el edificio en tiempo real provocaba graves problemas visuales en la consola (saltos de línea descontrolados y parpadeo constante) al intentar renderizar matrices inmensas.
-**Solución**: Se concluyó que la arquitectura multihilo actual es perfecta y muy didáctica para escalas normales (un edificio UAX realista), pero para llevarlo a una "escala de rascacielos gigante" la visualización por consola queda obsoleta (se requeriría una interfaz gráfica) y el motor interno debería migrar de `threading` a la librería `asyncio`, la cual usa corrutinas mucho más ligeras para manejar miles de entidades con una única hebra del sistema operativo.
+**Problema**: Con muchas plantas y ascensores, el overhead de `threading` y el GIL degradaba el rendimiento, y la renderización en consola se volvía impráctica por el parpadeo y la saturación de salida.
+
+**Solución**: Se mantiene la arquitectura multihilo para tamaños normales, pero se reconoce que para escalas muy grandes sería mejor migrar a `asyncio` y una interfaz gráfica en lugar de confiar en una consola pesada.
 
 ## 7. Instrucciones de Ejecución
 
