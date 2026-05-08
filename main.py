@@ -22,7 +22,7 @@ def dibujar_edificio(ascensores):
     print("=" * 50)
     print(" ESTADO DEL EDIFICIO ".center(50, " "))
     print("=" * 50)
-    
+
     for planta in range(config.NUM_PLANTAS - 1, -1, -1):
         linea = f"P{planta:02d}: "
         for a in ascensores:
@@ -53,11 +53,11 @@ def pedir_entero(mensaje, valor_defecto, min_valor):
 def main():
     configurar_logging()
     print("Bienvenido al Simulador Avanzado de Ascensores")
-    
+
     config.NUM_PLANTAS = pedir_entero("Número de plantas", config.NUM_PLANTAS, 2)
     config.NUM_ASCENSORES = pedir_entero("Número de ascensores", config.NUM_ASCENSORES, 1)
     config.CAPACIDAD_MAXIMA = pedir_entero("Capacidad máxima", config.CAPACIDAD_MAXIMA, 1)
-        
+
     inicializar_edificio()
 
     ascensores = [Ascensor(i) for i in range(config.NUM_ASCENSORES)]
@@ -70,10 +70,10 @@ def main():
     generador = GeneradorPersonas()
     generador.daemon = True
     generador.start()
-    
+
     print("\nSimulación iniciada. Usa 'auto on' para iniciar el generador de personas.")
-    print("Comandos: 'origen destino' (ej. 3 8), 'estado', 'auto on', 'auto off', 'salir'")
-    
+    print("Comandos: 'origen destino prioridad' (ej. 3 8 0), 'estado', 'auto on', 'auto off', 'salir'")
+
     while True:
         try:
             cmd = input("> ").strip().lower()
@@ -89,18 +89,19 @@ def main():
                 print("Generador automático DESACTIVADO.")
             else:
                 partes = cmd.split()
-                if len(partes) == 2 and partes[0].isdigit() and partes[1].isdigit():
+                if len(partes) == 3 and all(p.isdigit() for p in partes):
                     origen = int(partes[0])
                     destino = int(partes[1])
-                    if 0 <= origen < config.NUM_PLANTAS and 0 <= destino < config.NUM_PLANTAS and origen != destino:
-                        generar_solicitud_manual(origen, destino)
-                        print(f"Solicitud manual enviada: {origen} -> {destino}")
+                    prioridad = int(partes[2])
+                    if 0 <= origen < config.NUM_PLANTAS and 0 <= destino < config.NUM_PLANTAS and origen != destino and prioridad in [0, 1]:
+                        generar_solicitud_manual(origen, destino, prioridad)
+                        print(f"Solicitud manual enviada: {origen} -> {destino} (prioridad: {prioridad})")
                         if abs(origen - destino) == 1:
                             print("🤖 ¡ERES UN VAGO, USA LAS ESCALERAS! (pero bueno, te mandamos el ascensor igualmente...)")
                     else:
-                        print(f"Plantas inválidas. Deben estar entre 0 y {config.NUM_PLANTAS - 1}.")
+                        print(f"Parámetros inválidos. Origen y destino entre 0 y {config.NUM_PLANTAS - 1}, prioridad 0 o 1.")
                 elif cmd:
-                    print("Comando no reconocido.")
+                    print("Comando no reconocido. Formato: origen destino prioridad")
         except Exception as e:
             print(f"Error procesando comando: {e}")
         except KeyboardInterrupt:

@@ -45,13 +45,15 @@ class Ascensor(threading.Thread):
 
             if dir_str:
                 esperando = personas_esperando[self.planta_actual][dir_str]
+                # Ordenar por prioridad descendente (mayor prioridad primero)
+                esperando.sort(key=lambda s: s.prioridad, reverse=True)
                 while esperando and len(self.pasajeros) < config.CAPACIDAD_MAXIMA:
                     solicitud = esperando.pop(0)
                     self.pasajeros.append(solicitud)
                     registrar_atencion(solicitud.timestamp)
                     with self.lock_ascensor:
                         self.destinos.add(solicitud.destino)
-                    logging.info(f"Ascensor {self.id}: pasajero sube en {self.planta_actual} con destino {solicitud.destino}")
+                    logging.info(f"Ascensor {self.id}: pasajero sube en {self.planta_actual} con destino {solicitud.destino} (prioridad: {solicitud.prioridad})")
 
     def run(self):
         while True:
@@ -78,16 +80,16 @@ class Ascensor(threading.Thread):
             if self.direccion != 0:
                 with self.lock_ascensor:
                     debe_parar = self.planta_actual in self.destinos
-                
+
                 if debe_parar:
                     self._parar_en_planta()
-                    
+
                 with self.lock_ascensor:
                     if not self.destinos and not self.pasajeros:
                         self.direccion = 0
                         self.evento.clear()
                         continue
-                
+
                 self.planta_actual += self.direccion
                 logging.debug(f"Ascensor {self.id} pasando por {self.planta_actual}")
                 time.sleep(config.TIEMPO_ENTRE_PLANTAS)
